@@ -107,7 +107,7 @@
         .pill-button {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             width: clamp(160px, 15vw, 180px);
             height: clamp(45px, 5vh, 50px);
             background: rgba(255, 255, 255, 0.1);
@@ -125,11 +125,11 @@
         }
 
         .pill-button img {
-        width: clamp(35px, 3vw, 40px);
-        height: clamp(35px, 3vw, 40px);
-        border-radius: 50%;
-        margin-right: 15px;
-        flex-shrink: 0;
+            width: clamp(25px, 2.5vw, 30px);
+            height: clamp(25px, 2.5vw, 30px);
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
 
         .pill-button span {
@@ -201,7 +201,7 @@
             left: 3.5%;
         }
 
-        /* Media query para telas muito grandes */
+        /* telas muito grandes */
         @media screen and (min-width: 1920px) {
             .left-content {
                 padding: 40px;
@@ -212,7 +212,7 @@
             }
         }
 
-        /* Media query para telas médias */
+        /* telas médias */
         @media screen and (min-width: 769px) and (max-width: 1200px) {
             .left-content {
                 padding: 15px;
@@ -301,7 +301,7 @@
 
         }
 
-        /* Media Query para dispositivos móveis */
+        /* pra mobile */
         @media screen and (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -372,6 +372,15 @@
                 top: 0;
                 left: 0;
                 margin: 0;
+                padding: 5px 5px;
+                justify-content: flex-start;
+            }
+
+            .pill-button img {
+                width: clamp(30px, 3vw, 35px);
+                height: clamp(30px, 3vw, 35px);
+                margin-right: 8px;
+                margin-left: 8px;
             }
 
             .contact-text {
@@ -432,8 +441,8 @@
                 <span>idkhtkm</span>
             </button>
             <button class="pill-button pill-2" onclick="window.open('https://discordapp.com/users/912474384898342922', '_blank')">
-                <img src="https://cdn.discordapp.com/avatars/912474384898342922/4f31f64e9712153af34ae07f2148081d.png">
-                <span>sapo1686</span>
+                <img src="https://cdn.discordapp.com/avatars/912474384898342922/3930d93e0e01b78041a55c8b559d684a.png">
+                <span>Mr.Frog</span>
             </button>
         </div>
         <div class="contact-text">
