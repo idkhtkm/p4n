@@ -201,7 +201,7 @@
             left: 3.5%;
         }
 
-        /* telas grandes - 1920x1080 */
+        /* pra telas grandes - 1920x1080 */
         @media screen and (min-width: 1361px) {
             .right-menu {
                 width: 1000px;
@@ -289,7 +289,7 @@
             }
         }
 
-        /* telas médias - 1360x768 */
+        /* pra telas médias - 1360x768 */
         @media screen and (min-width: 769px) and (max-width: 1360px) {     
             .left-content {
                 width: clamp(400px, 40%, 800px);
@@ -467,6 +467,14 @@
                 left: 3.5%;
             }
 
+            .en .or-text {
+                position: absolute;
+                font-size: clamp(40px, 4vw, 40px);
+                top: 69.5%;
+                left: 13%;
+                transform: translateY(-50%);
+            }
+            
         }
 
         /* pra mobile */
@@ -488,7 +496,7 @@
 
             .title {
                 position: static;
-                margin-top: 20px;
+                margin-top: 60px;
                 margin-bottom: 10px;
                 font-size: 40px;
                 text-align: center;
@@ -568,32 +576,132 @@
             .instructions-container {
                 width: 90%;
                 display: flex;
-                justify-content: space-between;
+                flex-direction: column;
                 align-items: center;
+                gap: 10px;
                 margin-top: 20px;
                 position: relative;
             }
 
             .instruction-box {
                 position: relative;
-                width: 45%;
+                width: 90%;
                 margin: 0;
                 top: 0;
                 left: 0;
             }
 
             .or-text {
+                top: 15px;
+                left: 0px;
                 position: relative;
-                font-size: 20px;
+                font-size: 25px;
+                margin: 10px 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            .language-select {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                transform: translateX(115%);
+                z-index: 100;
+            }
+
+            .language-select select {
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-family: Helvetica;
+                cursor: pointer;
+            }
+
+            .language-select select option {
+                background: #202020;
+                color: white;
+            }
+
+            .en .or-texttop, 
+            .en .or-texttop2 {
+                position: static;
+                text-align: center;
+                transform: translateX(90%);
+                font-size: 30px;
+            }
+
+            .en .instructions-container {
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+                position: relative;
+            }
+
+            .en .instruction-box {
+                position: relative;
+                width: 90%;
+                margin: 0px;
                 top: 0;
                 left: 0;
-                transform: none;
-                margin: 0 10px;
             }
+
+            .en .or-text {
+                top: 15px;
+                left: 0px;
+                position: relative;
+                font-size: 25px;
+                margin: 10px 0;
+                text-align: center;
+                width: 100%;
+            }
+
         }
+
+        .language-select {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .language-select select {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: Helvetica;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .language-select select option {
+            background: #202020;
+            color: white;
+        }
+
+        .en .or-texttop, 
+        .en .or-texttop2 {
+            text-align: center;
+            width: 35%;
+            left: 0;
+        }
+
     </style>
 </head>
 <body>
+
+    <div class="language-select">
+        <select id="languageSelect" onchange="changeLanguage()">
+            <option value="pt">Português</option>
+            <option value="en">English</option>
+        </select>
+    </div>
     <div class="left-content">
         <h1 class="title">Pirating 4 Noobs</h1>
         <p class="text">Somos dois jovens com 8 anos de experiência na internet. Durante esse tempo, vimos muitas pessoas que mesmo sem condições de comprar um jogo ou pagar por um serviço de streaming, acabam fazendo isso por medo ou por não saberem como navegar na internet de forma segura e consequentemente pegar um vírus. Por isso, criamos essa comunidade no discord para ajudar quem não tem muito conhecimento sobre o assunto. Nosso objetivo é tornar as mídias de fácil acesso para todos: jogos, programas, filmes, séries, livros... O que você pedir e estiver ao nosso alcance, vamos fazer com total anonimato. E, para quem quiser nos apoiar e gostar da nossa causa, pedimos uma contribuição opcional de um valor da sua preferência.</p>
@@ -627,5 +735,41 @@
             </div>
         </div>
     </div>
+    <script>
+
+        function changeLanguage() {
+            const language = document.getElementById('languageSelect').value;
+            if (language === 'en') {
+                document.body.classList.add('en');
+                document.querySelector('.text').textContent = 'We are two young people with 8 years of experience on the internet. During this time, we have seen many people who, even without being able to buy a game or pay for a streaming service, end up doing so out of fear or not knowing how to safely navigate the internet and consequently get a virus. Therefore, we created this discord community to help those who don\'t have much knowledge about the subject. Our goal is to make media easily accessible to everyone: games, programs, movies, series, books... Whatever you ask for and is within our reach, we will do it with total anonymity. And, for those who want to support us and like our cause, we ask for an optional contribution of an amount of your choice.';
+                document.querySelector('.text2').innerHTML = 'All content will be taken from the sites available in the Megathreads of <a href="https://www.reddit.com/r/Piracy/" style="color: #77b8ed;" target="_blank" rel="noopener noreferrer">r/Piracy</a> and <a href="https://www.reddit.com/r/pirataria/" style="color: #77b8ed;" target="_blank" rel="noopener noreferrer">r/pirataria</a>';
+                document.querySelector('.or-texttop').textContent = 'How to';
+                document.querySelector('.or-texttop2').textContent = 'contact us?';
+                document.querySelector('.or-text').textContent = 'OR';
+                document.querySelector('.instruction-1').textContent = 'Click on the image, join the server and make your request in the respective tab';
+                document.querySelector('.instruction-2').textContent = 'Send a message to one of us';
+            } else {
+                document.body.classList.remove('en');
+                document.querySelector('.text').textContent = 'Somos dois jovens com 8 anos de experiência na internet. Durante esse tempo, vimos muitas pessoas que mesmo sem condições de comprar um jogo ou pagar por um serviço de streaming, acabam fazendo isso por medo ou por não saberem como navegar na internet de forma segura e consequentemente pegar um vírus. Por isso, criamos essa comunidade no discord para ajudar quem não tem muito conhecimento sobre o assunto. Nosso objetivo é tornar as mídias de fácil acesso para todos: jogos, programas, filmes, séries, livros... O que você pedir e estiver ao nosso alcance, vamos fazer com total anonimato. E, para quem quiser nos apoiar e gostar da nossa causa, pedimos uma contribuição opcional de um valor da sua preferência.';
+                document.querySelector('.text2').innerHTML = 'Todo o conteúdo será retirado dos sites que estão disponíves nas Megathreads do <a href="https://www.reddit.com/r/Piracy/" style="color: #77b8ed;" target="_blank" rel="noopener noreferrer">r/Piracy</a> e <a href="https://www.reddit.com/r/pirataria/" style="color: #77b8ed;" target="_blank" rel="noopener noreferrer">r/pirataria</a>';
+                document.querySelector('.or-texttop').textContent = 'Como nos';
+                document.querySelector('.or-texttop2').textContent = 'contactar?';
+                document.querySelector('.or-text').textContent = 'OU';
+                document.querySelector('.instruction-1').textContent = 'Clique na imagem, entre no servidor e faça o seu pedido na aba respectiva';
+                document.querySelector('.instruction-2').textContent = 'Mande mensagem para um de nós dois';
+            }
+        }
+
+        function detectLanguage() {
+            if (navigator.language.startsWith('pt')) {
+                document.getElementById('languageSelect').value = 'pt';
+            } else {
+                document.getElementById('languageSelect').value = 'en';
+                changeLanguage();
+            }
+        }
+
+        window.onload = detectLanguage;
+    </script>
 </body>
 </html>
